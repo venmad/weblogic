@@ -91,7 +91,7 @@ def Applicationstatus() :
 	wlpwd=wlproperties.getProperty('wlpwd')
 	wllistenaddress=wlproperties.getProperty('wllistenaddress')
 	wllistenport=wlproperties.getProperty('wllistenport')
-	applicationpath=wlproperties.getProperty('applicationpath')
+	applicationpath=properties.getProperty('applicationpath')
 	
 	earname1=properties.getProperty('ear.name1')
 	earname2=properties.getProperty('ear.name2')
