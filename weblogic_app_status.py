@@ -1,3 +1,15 @@
+#####Connect to Weblogic AdminServer#######################
+def connectAdmin() :
+	
+	wlurl = 't3://'+wllistenaddress+':'+wllistenport
+	print('connecting to the url:'+ wlurl)
+
+	try:
+		connect(wlusr, wlpwd, wlurl)
+		print('Successfully connected')
+	except:
+		print 'Unable to find admin server...'
+		exit()
 ############Getting the Application Status########################		
 def Applicationstatus() :
     connectAdmin()
@@ -26,6 +38,11 @@ def Applicationstatus() :
         print(line)
     file.close()
 	############# main method #####################
-if __name__== "main":
-	print('Application Status')
-	Applicationstatus()
+if __name__== "main":	
+	wlsfileStream=java.io.FileInputStream('WLSProperties.py')
+	wlproperties=java.util.Properties()
+	wlproperties.load(wlsfileStream)	
+	wlusr=wlproperties.getProperty('wlusr')
+	wlpwd=wlproperties.getProperty('wlpwd')
+	wllistenaddress=wlproperties.getProperty('wllistenaddress')
+	wllistenport=wlproperties.getProperty('wllistenport')
